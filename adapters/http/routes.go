@@ -8,10 +8,11 @@ import (
 )
 
 type Controllers struct {
-	AuthController    AuthController
-	ProfileController ProfileController
-	SwipeController   SwipeController
-	JwtUtil           *jwt_util.JwtUtil
+	AuthController        AuthController
+	ProfileController     ProfileController
+	SwipeController       SwipeController
+	TransactionController TransactionController
+	JwtUtil               *jwt_util.JwtUtil
 }
 
 func RegisterRoutes(router *gin.Engine, cfg *config.Config, controllers Controllers) {
@@ -33,6 +34,9 @@ func RegisterRoutes(router *gin.Engine, cfg *config.Config, controllers Controll
 	swipe := requireAuthV1.Group("/swipes")
 	swipe.GET("/next", controllers.SwipeController.GetNextProfileToSwipe)
 	swipe.POST("", controllers.SwipeController.SwipeProfile)
+
+	transaction := requireAuthV1.Group("/transactions")
+	transaction.POST("/buy", controllers.TransactionController.Buy)
 
 	internal := v1.Group("/internal")
 	internal.Use(middlewares.RequireInternalAuth(cfg.InternalConfig))

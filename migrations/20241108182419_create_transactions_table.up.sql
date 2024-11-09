@@ -22,3 +22,10 @@ CREATE INDEX ON "user_purchases" ("is_active", "user_id");
 
 ALTER TABLE "user_purchases" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 ALTER TABLE "user_purchases" ADD FOREIGN KEY ("package_id") REFERENCES "premium_packages" ("id");
+
+insert into premium_packages (id, name, description, price, validity, config)
+values (
+	UUID_GENERATE_V4(), 'Unlimited Quota', 'Unlimited quota package', '50000'::DECIMAL, 300, '{
+  "unlimited": true
+}'::JSONB
+);

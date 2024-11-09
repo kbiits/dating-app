@@ -17,3 +17,7 @@ type SwipeController interface {
 	GetNextProfileToSwipe(c *gin.Context)
 	ClearBloomsByDate(c *gin.Context)
 }
+
+type TransactionController interface {
+	Buy(c *gin.Context)
+}

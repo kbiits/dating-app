@@ -14,6 +14,24 @@ type UserRepository struct {
 	mock.Mock
 }
 
+// AddPurchaseEntry provides a mock function with given fields: ctx, purchase
+func (_m *UserRepository) AddPurchaseEntry(ctx context.Context, purchase entity.UserPurchase) error {
+	ret := _m.Called(ctx, purchase)
+
+	if len(ret) == 0 {
+		panic("no return value specified for AddPurchaseEntry")
+	}
+
+	var r0 error
+	if rf, ok := ret.Get(0).(func(context.Context, entity.UserPurchase) error); ok {
+		r0 = rf(ctx, purchase)
+	} else {
+		r0 = ret.Error(0)
+	}
+
+	return r0
+}
+
 // AddUser provides a mock function with given fields: ctx, user
 func (_m *UserRepository) AddUser(ctx context.Context, user entity.User) (entity.User, error) {
 	ret := _m.Called(ctx, user)

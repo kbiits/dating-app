@@ -468,6 +468,79 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Buy Package",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function isRunningFromCollection() {",
+							"    return postman.__execution.cursor.length > 1;",
+							"}",
+							"",
+							"if (isRunningFromCollection()) {",
+							"    return;",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function isRunningFromCollection() {",
+							"    return postman.__execution.cursor.length > 1;",
+							"}",
+							"",
+							"if (isRunningFromCollection()) {",
+							"    pm.execution.skipRequest();",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkYXRpbmctYXBwIiwic3ViIjoiMDMxNmUzNmEtY2I0My00NzdkLTgzYzUtMjVhNDBmMDM0NzgzIiwiYXVkIjpbImRhdGluZy1hcHAtdXNlcnMiXSwiZXhwIjoxNzMxMTU2NDkwLCJuYmYiOjE3MzExNTA0OTAsImlhdCI6MTczMTE1MDQ5MCwianRpIjoiNTZjMTBlMjQtMWRlNS00Y2UzLThmYzUtYzljZDdkMTg0MjQ5In0.ls7ex--RIrJUqyDSIO9VXdWTgGUFkpnbH1hOlQiQs8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"package_id\": \"ad163440-fc8e-4567-b7a0-1a7bc84a5d24\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/transactions/buy",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"transactions",
+						"buy"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

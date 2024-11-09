@@ -98,12 +98,12 @@ func (_m *ProfileRepository) GetProfileByUserID(ctx context.Context, userID stri
 	return r0, r1
 }
 
-// GetRandomProfilesInSameDistrict provides a mock function with given fields: ctx, loggedInUserID, districtID, limit
-func (_m *ProfileRepository) GetRandomProfilesInSameDistrict(ctx context.Context, loggedInUserID string, districtID string, limit int) ([]entity.Profile, error) {
+// GetRandomProfiles provides a mock function with given fields: ctx, loggedInUserID, districtID, limit
+func (_m *ProfileRepository) GetRandomProfiles(ctx context.Context, loggedInUserID string, districtID string, limit int) ([]entity.Profile, error) {
 	ret := _m.Called(ctx, loggedInUserID, districtID, limit)
 
 	if len(ret) == 0 {
-		panic("no return value specified for GetRandomProfilesInSameDistrict")
+		panic("no return value specified for GetRandomProfiles")
 	}
 
 	var r0 []entity.Profile

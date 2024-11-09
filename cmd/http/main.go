@@ -15,6 +15,7 @@ import (
 	http_auth "github.com/kbiits/dealls-take-home-test/adapters/http/auth"
 	http_profile "github.com/kbiits/dealls-take-home-test/adapters/http/profile"
 	http_swipe "github.com/kbiits/dealls-take-home-test/adapters/http/swipe"
+	http_transaction "github.com/kbiits/dealls-take-home-test/adapters/http/transaction"
 	"github.com/kbiits/dealls-take-home-test/config"
 	swipe_service "github.com/kbiits/dealls-take-home-test/domain/services/swipe"
 	"github.com/kbiits/dealls-take-home-test/infrastructure/postgres"
@@ -29,6 +30,7 @@ import (
 	auth_usecase "github.com/kbiits/dealls-take-home-test/usecases/auth"
 	profile_usecase "github.com/kbiits/dealls-take-home-test/usecases/profile"
 	swipe_usecase "github.com/kbiits/dealls-take-home-test/usecases/swipe"
+	transaction_usecase "github.com/kbiits/dealls-take-home-test/usecases/transaction"
 	jwt_util "github.com/kbiits/dealls-take-home-test/utils/jwt"
 )
 
@@ -112,6 +114,9 @@ func bootstrapApp(cfg *config.Config) http_controllers.Controllers {
 		AuthController:    authController,
 		ProfileController: profileController,
 		SwipeController:   swipeController,
-		JwtUtil:           jwtUtil,
+		TransactionController: http_transaction.NewTransactionController(
+			transaction_usecase.NewAuthUsecase(userRepo, premiumPackageRepo),
+		),
+		JwtUtil: jwtUtil,
 	}
 }

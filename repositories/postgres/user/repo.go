@@ -80,3 +80,17 @@ func (repo *userRepository) GetUserLastPurchase(ctx context.Context, userID stri
 
 	return &purchase, nil
 }
+
+func (repo *userRepository) AddPurchaseEntry(ctx context.Context, purchase entity.UserPurchase) error {
+	const queryTemplate = `
+		INSERT INTO user_purchases (id, user_id, package_id, purchase_date, is_active)
+		VALUES (UUID_GENERATE_V4(), :user_id, :package_id, :purchase_date, :is_active)
+	`
+
+	_, err := sqlx.NamedExecContext(ctx, repo.db, queryTemplate, purchase)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
