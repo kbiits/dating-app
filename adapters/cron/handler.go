@@ -1,12 +1,13 @@
-package main
+package cron_handler
 
-import (
-	cron_swipe "github.com/kbiits/dealls-take-home-test/adapters/cron/swipe"
-	"github.com/robfig/cron/v3"
-)
+import "github.com/robfig/cron/v3"
+
+type SwipeCronHandler interface {
+	ClearYesterdayBlooms()
+}
 
 type CronHandlers struct {
-	SwipeCronHandler cron_swipe.SwipeCronHandler
+	SwipeCronHandler SwipeCronHandler
 }
 
 func RegisterCron(

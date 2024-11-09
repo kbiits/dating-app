@@ -1,0 +1,572 @@
+[
+    {
+        "user_name": "User 1",
+        "user_email": "integration_test_user_1@local.mail",
+        "user_password": "integration_test_password_1",
+        "user_bio": "Integration test user 1 bio",
+        "user_gender": "female",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "310101",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 2",
+        "user_email": "integration_test_user_2@local.mail",
+        "user_password": "integration_test_password_2",
+        "user_bio": "Integration test user 2 bio",
+        "user_gender": "male",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "310102",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 3",
+        "user_email": "integration_test_user_3@local.mail",
+        "user_password": "integration_test_password_3",
+        "user_bio": "Integration test user 3 bio",
+        "user_gender": "female",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "317101",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 4",
+        "user_email": "integration_test_user_4@local.mail",
+        "user_password": "integration_test_password_4",
+        "user_bio": "Integration test user 4 bio",
+        "user_gender": "male",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "317102",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 5",
+        "user_email": "integration_test_user_5@local.mail",
+        "user_password": "integration_test_password_5",
+        "user_bio": "Integration test user 5 bio",
+        "user_gender": "female",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "317103",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 6",
+        "user_email": "integration_test_user_6@local.mail",
+        "user_password": "integration_test_password_6",
+        "user_bio": "Integration test user 6 bio",
+        "user_gender": "male",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "317104",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 7",
+        "user_email": "integration_test_user_7@local.mail",
+        "user_password": "integration_test_password_7",
+        "user_bio": "Integration test user 7 bio",
+        "user_gender": "female",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "317105",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 8",
+        "user_email": "integration_test_user_8@local.mail",
+        "user_password": "integration_test_password_8",
+        "user_bio": "Integration test user 8 bio",
+        "user_gender": "male",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "317106",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 9",
+        "user_email": "integration_test_user_9@local.mail",
+        "user_password": "integration_test_password_9",
+        "user_bio": "Integration test user 9 bio",
+        "user_gender": "female",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "317107",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_10@local.mail",
+                "target_user_name": "User 10",
+                "is_liked": false
+            }
+        ]
+    },
+    {
+        "user_name": "User 10",
+        "user_email": "integration_test_user_10@local.mail",
+        "user_password": "integration_test_password_10",
+        "user_bio": "Integration test user 10 bio",
+        "user_gender": "male",
+        "user_dob": "2000-01-01T00:00:00+07:00",
+        "user_profile_pic_url": "https://www.example.com/profile_pic.jpg",
+        "user_district_id": "317108",
+        "swipes": [
+            {
+                "target_user_email": "integration_test_user_1@local.mail",
+                "target_user_name": "User 1",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_2@local.mail",
+                "target_user_name": "User 2",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_3@local.mail",
+                "target_user_name": "User 3",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_4@local.mail",
+                "target_user_name": "User 4",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_5@local.mail",
+                "target_user_name": "User 5",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_6@local.mail",
+                "target_user_name": "User 6",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_7@local.mail",
+                "target_user_name": "User 7",
+                "is_liked": false
+            },
+            {
+                "target_user_email": "integration_test_user_8@local.mail",
+                "target_user_name": "User 8",
+                "is_liked": true
+            },
+            {
+                "target_user_email": "integration_test_user_9@local.mail",
+                "target_user_name": "User 9",
+                "is_liked": false
+            }
+        ]
+    }
+]

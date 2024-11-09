@@ -108,24 +108,25 @@ func (repo *ProfileRepository) UpdateProfileByUserID(ctx context.Context, profil
 	return profile, nil
 }
 
-func (repo *ProfileRepository) GetRandomProfilesInSameDistrict(ctx context.Context, loggedInUserID, districtID string, limit int) ([]entity.Profile, error) {
+func (repo *ProfileRepository) GetRandomProfiles(ctx context.Context, profileID, districtID string, limit int) ([]entity.Profile, error) {
+
+	// TODO: we can use districtID as a filter to get profiles in the same district
+	// we also can make a recommendation engine based on preferences, such as gender, age, etc
+	// but for now, we will just get random profiles
 	const query = `
 		SELECT up.*
 		FROM user_profiles up
-		TABLESAMPLE system_rows($1)
-		LEFT JOIN
-			swipes s ON s.swiper_id = $4
+		LEFT JOIN swipes s ON s.swiped_id = up.id AND s.swiper_id = $3
 		WHERE
+			s.id IS NULL AND
 			up.status = $2 AND
-			s.swipe_date = CURRENT_DATE AND
-			up.district_id = $3 AND
-			up.user_id != $4 AND
-			s.id IS NULL
+			up.id != $3
+		LIMIT $1;
 	`
 
 	var profiles []entity.Profile
 	if err := sqlx.SelectContext(
-		ctx, repo.db, &profiles, query, limit, entity.ProfileStatusVerified, districtID, loggedInUserID); err != nil {
+		ctx, repo.db, &profiles, query, limit, entity.ProfileStatusVerified,  profileID); err != nil {
 		log.Error().Err(err).Msg("failed to get random profiles in same district")
 		return nil, err
 	}

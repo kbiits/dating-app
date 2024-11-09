@@ -15,5 +15,5 @@ CREATE TABLE "swipes" (
 CREATE INDEX ON "swipes" ("swipe_date", "swiper_id");
 CREATE INDEX ON "swipes" USING HASH ("swiper_id");
 
-ALTER TABLE "swipes" ADD FOREIGN KEY ("swiper_id") REFERENCES "users" ("id");
-ALTER TABLE "swipes" ADD FOREIGN KEY ("swiped_id") REFERENCES "users" ("id");
+ALTER TABLE "swipes" ADD FOREIGN KEY ("swiper_id") REFERENCES "user_profiles" ("id");
+ALTER TABLE "swipes" ADD FOREIGN KEY ("swiped_id") REFERENCES "user_profiles" ("id");

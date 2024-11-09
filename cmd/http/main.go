@@ -38,7 +38,7 @@ func main() {
 	flag.StringVar(&configPath, "config", "./.env", "specify path to dotenv file (default: .env)")
 	flag.Parse()
 
-	config.FeederConfig.Path = configPath
+	config.SetConfigFilePath(configPath)
 	cfg := config.GetConfig()
 
 	controllers := bootstrapApp(cfg)

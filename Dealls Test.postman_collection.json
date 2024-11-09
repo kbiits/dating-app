@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "738a128c-c546-4d49-9f00-48569b8fdd5f",
+		"name": "Dealls Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39615283"
+	},
+	"item": [
+		{
+			"name": "Test User Authentications",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"    pm.expect(pm.response.json()).to.have.nested.property(\"data.access_token\")",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{user_email}}\",\n    \"password\": \"{{user_password}}\",\n    \"name\": \"{{user_name}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/auth/sign-up",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.have.jsonBody();",
+									"    const body = pm.response.json();",
+									"    pm.expect(body).to.have.nested.property(\"data.access_token\");",
+									"    pm.variables.set(\"user_token\", body.data.access_token);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{user_email}}\",\n    \"password\": \"{{user_password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test User Complete Profile",
+			"item": [
+				{
+					"name": "Complete Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(pm.response.json()).to.have.nested.property(\"data.id\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const user_token = pm.variables.get(\"user_token\");",
+									"pm.request.addHeader({",
+									"    key: \"Authorization\",",
+									"    value: \"Bearer \" + user_token,",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"display_name\": \"{{user_name}}\",\n    \"bio\": \"{{user_bio}}\",\n    \"gender\": \"{{user_gender}}\",\n    \"date_of_birth\": \"{{user_dob}}\",\n    \"profile_pic_url\": \"{{user_profile_pic_url}}\",\n    \"district_id\": \"{{user_district_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/profiles/me",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profiles",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const { data } = pm.response.json();",
+									"",
+									"    pm.variables.set(\"user_id\", data.user_id);",
+									"    pm.variables.set(\"profile_id\", data.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/profiles/me",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profiles",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test User Swipes",
+			"item": [
+				{
+					"name": "Get Next Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 or 404\", function () {",
+									"    const swipes = pm.variables.get(\"swipes\");",
+									"",
+									"    if (swipes.length > 0) {",
+									"        pm.response.to.have.status(200);",
+									"",
+									"        const body = pm.response.json();",
+									"",
+									"        const { data } = body;",
+									"",
+									"        const toBeSwipedProfileID = data.profile_id;",
+									"",
+									"        // this to be swiped should exists in our generated swipes array",
+									"        const idx = swipes.findIndex(el => el.target_user_name === data.display_name);",
+									"        const isFoundIdx = idx > -1;",
+									"",
+									"        pm.expect(isFoundIdx).to.be.true;",
+									"",
+									"        pm.variables.set(\"to_be_swiped\", {",
+									"            profile_id: toBeSwipedProfileID,",
+									"            name: data.display_name,",
+									"            is_liked: swipes[idx].is_liked,",
+									"            swipe_idx: idx,",
+									"        });",
+									"    } else {",
+									"        pm.variables.set(\"to_be_swiped\", null);",
+									"        pm.execution.setNextRequest(null);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/swipes/next",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"swipes",
+								"next"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swipe Profile",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function isRunningFromCollection(){",
+									"    return postman.__execution.cursor.length > 1;",
+									"}",
+									"",
+									"if (isRunningFromCollection()) {",
+									"    const toBeSwiped = pm.variables.get(\"to_be_swiped\");",
+									"    pm.request.body = JSON.stringify({",
+									"        \"profile_id\": toBeSwiped.profile_id,",
+									"        \"is_liked\": toBeSwiped.is_liked,",
+									"    })",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"function isRunningFromCollection() {",
+									"    return postman.__execution.cursor.length > 1;",
+									"}",
+									"",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const swipes = pm.variables.get(\"swipes\");",
+									"",
+									"    if (isRunningFromCollection()) {",
+									"        const toBeSwiped = pm.variables.get(\"to_be_swiped\");",
+									"        swipes.splice(toBeSwiped.swipe_idx, 1)",
+									"        pm.variables.set(\"swipes\", swipes);",
+									"",
+									"        if (swipes.length > 0) {",
+									"            pm.execution.setNextRequest(\"Get Next Profile\");",
+									"        } else {",
+									"            pm.execution.setNextRequest(null);",
+									"        }",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile_id\": \"59dc6a0f-7250-4efd-adc5-96037d6218d5\",\n    \"is_liked\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/swipes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"swipes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clear Bloom Filters",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let yourDate = new Date();",
+							"",
+							"pm.request.body = JSON.stringify({",
+							"    date: yourDate.toISOString().split('T')[0],",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "secret",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/internal/clear-blooms",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"internal",
+						"clear-blooms"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "user_token",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "user_email",
+			"value": "integration_test_user_1@local.mail",
+			"type": "default"
+		},
+		{
+			"key": "user_password",
+			"value": "integration_test_password_1",
+			"type": "default"
+		}
+	]
+}

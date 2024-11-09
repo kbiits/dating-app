@@ -1,9 +1,14 @@
 package repository
 
-import "context"
+import (
+	"context"
+
+	"github.com/kbiits/dealls-take-home-test/domain/entity"
+)
 
 type SwipeRepository interface {
 	CountUserSwipeByDate(ctx context.Context, userID string, date string) (int, error)
+	AddSwipeEntry(ctx context.Context, swipe entity.Swipe) error
 }
 
 type SwipeCacheRepository interface {

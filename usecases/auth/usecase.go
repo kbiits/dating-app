@@ -43,6 +43,10 @@ func (uc *authUsecase) Login(ctx context.Context, spec LoginSpec) (LoginResult, 
 	}
 
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(spec.Password)); err != nil {
+		if err == bcrypt.ErrMismatchedHashAndPassword {
+			return LoginResult{}, domain_errors.ErrInvalidCredentials
+		}
+
 		return LoginResult{}, err
 	}
 
@@ -63,7 +67,9 @@ func (uc *authUsecase) SignUp(ctx context.Context, spec SignUpSpec) (SignUpResul
 		return SignUpResult{}, err
 	}
 
-	if existingUser, _ := uc.userRepo.GetUserByEmail(ctx, spec.Email); existingUser.ID != "" {
+	if existingUser, err := uc.userRepo.GetUserByEmail(ctx, spec.Email); err != nil && err != domain_errors.ErrUserNotFound {
+		return SignUpResult{}, err
+	} else if existingUser.ID != "" {
 		return SignUpResult{}, domain_errors.ErrUserAlreadyExists
 	}
 

@@ -19,6 +19,7 @@ var (
 	validationError = map[DomainError]bool{
 		ErrUserAlreadyExists: true,
 		ErrCannotDoSwipe:     true,
+		ErrInvalidCredentials:  true,
 	}
 )
 
@@ -47,6 +48,9 @@ var (
 	}
 	ErrUserAlreadyExists = DomainError{
 		err: errors.New("user already exists"),
+	}
+	ErrInvalidCredentials = DomainError{
+		err: errors.New("invalid credentials"),
 	}
 )
 

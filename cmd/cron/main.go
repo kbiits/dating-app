@@ -6,6 +6,7 @@ import (
 	"syscall"
 	"time"
 
+	cron_handler "github.com/kbiits/dealls-take-home-test/adapters/cron"
 	cron_swipe "github.com/kbiits/dealls-take-home-test/adapters/cron/swipe"
 	"github.com/kbiits/dealls-take-home-test/config"
 	swipe_service "github.com/kbiits/dealls-take-home-test/domain/services/swipe"
@@ -34,7 +35,7 @@ func main() {
 		cron.WithLocation(time.Local),
 	)
 
-	RegisterCron(cronEngine, handlers)
+	cron_handler.RegisterCron(cronEngine, handlers)
 
 	go func() {
 		log.Info().Msg("starting cron")
@@ -50,7 +51,7 @@ func main() {
 	cronEngine.Stop()
 }
 
-func bootstrapCron() CronHandlers {
+func bootstrapCron() cron_handler.CronHandlers {
 	cfg := config.GetConfig()
 
 	db, err := postgres.ConnectToPostgres(cfg.Database)
@@ -77,7 +78,7 @@ func bootstrapCron() CronHandlers {
 
 	swipeUsecase := swipe_usecase.NewSwipeUsecase(profileRepo, swipeRepo, swipeCacheRepo, txRepo, swipeService)
 
-	return CronHandlers{
+	return cron_handler.CronHandlers{
 		SwipeCronHandler: cron_swipe.NewSwipeCronHandler(swipeUsecase),
 	}
 }

@@ -8,6 +8,7 @@ import (
 	"github.com/jackc/pgx/v5/stdlib"
 	"github.com/jmoiron/sqlx"
 	"github.com/kbiits/dealls-take-home-test/config"
+	"github.com/rs/zerolog/log"
 )
 
 func ConnectToPostgres(
@@ -31,6 +32,7 @@ func ConnectToPostgres(
 	afterConnect := stdlib.OptionAfterConnect(func(ctx context.Context, conn *pgx.Conn) error {
 		_, err := conn.Exec(ctx, `SELECT 1`)
 		if err != nil {
+			log.Error().Err(err).Msg("error on test on borrow conn query")
 			return err
 		}
 		return nil

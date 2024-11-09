@@ -13,9 +13,27 @@ type SwipeCacheRepository struct {
 	mock.Mock
 }
 
-// GetNonSwiped provides a mock function with given fields: ctx, swiperProfileID, profileIDs
-func (_m *SwipeCacheRepository) GetNonSwiped(ctx context.Context, swiperProfileID string, profileIDs []string) ([]string, error) {
-	ret := _m.Called(ctx, swiperProfileID, profileIDs)
+// ClearYesterdayBloomFilter provides a mock function with given fields: ctx, date
+func (_m *SwipeCacheRepository) ClearYesterdayBloomFilter(ctx context.Context, date string) error {
+	ret := _m.Called(ctx, date)
+
+	if len(ret) == 0 {
+		panic("no return value specified for ClearYesterdayBloomFilter")
+	}
+
+	var r0 error
+	if rf, ok := ret.Get(0).(func(context.Context, string) error); ok {
+		r0 = rf(ctx, date)
+	} else {
+		r0 = ret.Error(0)
+	}
+
+	return r0
+}
+
+// GetNonSwiped provides a mock function with given fields: ctx, date, swiperProfileID, profileIDs
+func (_m *SwipeCacheRepository) GetNonSwiped(ctx context.Context, date string, swiperProfileID string, profileIDs []string) ([]string, error) {
+	ret := _m.Called(ctx, date, swiperProfileID, profileIDs)
 
 	if len(ret) == 0 {
 		panic("no return value specified for GetNonSwiped")
@@ -23,19 +41,19 @@ func (_m *SwipeCacheRepository) GetNonSwiped(ctx context.Context, swiperProfileI
 
 	var r0 []string
 	var r1 error
-	if rf, ok := ret.Get(0).(func(context.Context, string, []string) ([]string, error)); ok {
-		return rf(ctx, swiperProfileID, profileIDs)
+	if rf, ok := ret.Get(0).(func(context.Context, string, string, []string) ([]string, error)); ok {
+		return rf(ctx, date, swiperProfileID, profileIDs)
 	}
-	if rf, ok := ret.Get(0).(func(context.Context, string, []string) []string); ok {
-		r0 = rf(ctx, swiperProfileID, profileIDs)
+	if rf, ok := ret.Get(0).(func(context.Context, string, string, []string) []string); ok {
+		r0 = rf(ctx, date, swiperProfileID, profileIDs)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).([]string)
 		}
 	}
 
-	if rf, ok := ret.Get(1).(func(context.Context, string, []string) error); ok {
-		r1 = rf(ctx, swiperProfileID, profileIDs)
+	if rf, ok := ret.Get(1).(func(context.Context, string, string, []string) error); ok {
+		r1 = rf(ctx, date, swiperProfileID, profileIDs)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -43,9 +61,9 @@ func (_m *SwipeCacheRepository) GetNonSwiped(ctx context.Context, swiperProfileI
 	return r0, r1
 }
 
-// MarkAsSwiped provides a mock function with given fields: ctx, swiperProfileID, profileID
-func (_m *SwipeCacheRepository) MarkAsSwiped(ctx context.Context, swiperProfileID string, profileID string) (bool, error) {
-	ret := _m.Called(ctx, swiperProfileID, profileID)
+// MarkAsSwiped provides a mock function with given fields: ctx, date, swiperProfileID, profileID
+func (_m *SwipeCacheRepository) MarkAsSwiped(ctx context.Context, date string, swiperProfileID string, profileID string) (bool, error) {
+	ret := _m.Called(ctx, date, swiperProfileID, profileID)
 
 	if len(ret) == 0 {
 		panic("no return value specified for MarkAsSwiped")
@@ -53,17 +71,17 @@ func (_m *SwipeCacheRepository) MarkAsSwiped(ctx context.Context, swiperProfileI
 
 	var r0 bool
 	var r1 error
-	if rf, ok := ret.Get(0).(func(context.Context, string, string) (bool, error)); ok {
-		return rf(ctx, swiperProfileID, profileID)
+	if rf, ok := ret.Get(0).(func(context.Context, string, string, string) (bool, error)); ok {
+		return rf(ctx, date, swiperProfileID, profileID)
 	}
-	if rf, ok := ret.Get(0).(func(context.Context, string, string) bool); ok {
-		r0 = rf(ctx, swiperProfileID, profileID)
+	if rf, ok := ret.Get(0).(func(context.Context, string, string, string) bool); ok {
+		r0 = rf(ctx, date, swiperProfileID, profileID)
 	} else {
 		r0 = ret.Get(0).(bool)
 	}
 
-	if rf, ok := ret.Get(1).(func(context.Context, string, string) error); ok {
-		r1 = rf(ctx, swiperProfileID, profileID)
+	if rf, ok := ret.Get(1).(func(context.Context, string, string, string) error); ok {
+		r1 = rf(ctx, date, swiperProfileID, profileID)
 	} else {
 		r1 = ret.Error(1)
 	}

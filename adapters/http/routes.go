@@ -32,6 +32,7 @@ func RegisterRoutes(router *gin.Engine, cfg *config.Config, controllers Controll
 	// swipes group
 	swipe := requireAuthV1.Group("/swipes")
 	swipe.GET("/next", controllers.SwipeController.GetNextProfileToSwipe)
+	swipe.POST("", controllers.SwipeController.SwipeProfile)
 
 	internal := v1.Group("/internal")
 	internal.Use(middlewares.RequireInternalAuth(cfg.InternalConfig))

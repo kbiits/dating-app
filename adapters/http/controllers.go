@@ -13,6 +13,7 @@ type ProfileController interface {
 }
 
 type SwipeController interface {
+	SwipeProfile(c *gin.Context)
 	GetNextProfileToSwipe(c *gin.Context)
 	ClearBloomsByDate(c *gin.Context)
 }

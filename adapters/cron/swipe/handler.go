@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	cron_handler "github.com/kbiits/dealls-take-home-test/adapters/cron"
 	swipe_usecase "github.com/kbiits/dealls-take-home-test/usecases/swipe"
 	"github.com/rs/zerolog/log"
 )
@@ -12,15 +13,11 @@ var (
 	logger = log.With().Str("module", "cron_swipe_handler").Caller().Logger()
 )
 
-type SwipeCronHandler interface {
-	ClearYesterdayBlooms()
-}
-
 type swipCronHandler struct {
 	swipeUsecase swipe_usecase.SwipeUsecase
 }
 
-func NewSwipeCronHandler(swipeUsecase swipe_usecase.SwipeUsecase) SwipeCronHandler {
+func NewSwipeCronHandler(swipeUsecase swipe_usecase.SwipeUsecase) cron_handler.SwipeCronHandler {
 	return &swipCronHandler{
 		swipeUsecase: swipeUsecase,
 	}
