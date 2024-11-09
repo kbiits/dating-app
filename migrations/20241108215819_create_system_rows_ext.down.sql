@@ -1,0 +1,1 @@
+DROP EXTENSION IF EXISTS tsm_system_rows;
